@@ -1,11 +1,43 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import ExperienceItem from '../components/ExperienceItem';
+import Projects from "../components/Projects"
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
-		<!-- <h1 class="text-white">Portolio</h1> -->
-	</main>
-</Layout>
-
+	<main class="flex flex-col items-center self-center mt-36 max-w-full w-[1044px] max-md:mt-10">
+		<section>
+			
+		</section>
+		<ExperienceItem/>
+		<!-- <div class="absolute left-[calc(50%-508px)] w-1 h-[calc(100%-84px)] bg-violet-800 mt-24 ml-16"></div> -->
+		<div class="absolute left-[calc(50%-508px)] w-1 h-[calc(100%-84px)] bg-violet-800 mt-24 ml-16">		
+			<div class="absolute w-6 h-6 bg-pink-500 rounded-full box-shadow-custom" style="top: 65px; left: -10px;"></div>
+			<div class="absolute  w-6 h-6 bg-pink-500 rounded-full box-shadow-custom" style="top: 440px; left: -10px;"></div>
+		<div class="relative flex items-center">
+			<div class="glow-circle"></div>
+		  </div>
+		  
+		</main>
+		<Projects/>
+	</Layout>
+	
+	
+		<style is:inline>
+			.experience-item {
+			  position: relative;
+			  background: linear-gradient(#13151a,#13151a) padding-box,
+						  linear-gradient(145deg,transparent 35%,#e81cff,#40c9ff) border-box;
+			  border: 2px solid transparent;
+			  border-radius: 5px;
+			  transition: all .6s cubic-bezier(.23,1,.32,1);
+			  padding: 15px 10px;
+			}
+			.box-shadow-custom {
+	  box-shadow: 0 0 10px rgba(255, 0, 127, 0.8),
+				  0 0 20px rgba(255, 0, 127, 0.6),
+				  0 0 30px rgba(255, 0, 127, 0.4);
+	}
+		  </style>
+		
