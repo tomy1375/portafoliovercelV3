@@ -11,7 +11,8 @@ export default {
 			'border-radius': '5px',
 			transition: 'all .6s cubic-bezier(.23,1,.32,1)',
 			padding: '10px 15px',
-		  }
+		  },
+		  
 		}
 	  },
 	plugins: [],

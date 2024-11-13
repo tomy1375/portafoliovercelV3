@@ -9,13 +9,13 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ imageSrc, title, description, technologies }) => {
   return (
-    <div className="flex flex-col items-center pb-12 w-full rounded-2xl border border-violet-800 border-solid max-md:mt-10">
-      <div className="flex flex-col justify-center items-center self-stretch px-20 py-12 rounded-2xl bg-neutral-800 max-md:px-5">
-        <img loading="lazy" src={imageSrc} alt={title} className="object-cover ml-3 max-w-full aspect-square w-[100px]" />
+    <div className="flex flex-col items-center pb-6 w-full rounded-2xl border border-violet-800 border-solid max-md:mt-10">
+      <div className="flex flex-col justify-center items-center self-stretch px-20 py-12 rounded-2xl rounded-top  bg-neutral-800 max-md:px-5">
+        <img loading="lazy" src={imageSrc} alt={title} className="object-cover ml-3 max-w-full aspect-square w-[800px]" />
       </div>
       <h3 className="mt-6 text-2xl font-semibold leading-none text-white">{title}</h3>
       <p className="mt-5 text-base font-light leading-7 text-white ml-3 ga">{description}</p>
-      <div className="flex flex-wrap gap-4 mt-8 max-w-full w-[383px] max-md:mt-6">
+      <div className="flex flex-wrap gap-4 mt-8 max-w-full w-[383px] max-md:mt-6 ml-5">
         {technologies.map((tech, index) => (
           <img key={index} loading="lazy" src={tech} alt="Technology icon" className="object-contain shrink-0 self-stretch my-auto aspect-square w-[40px]" />
         ))}
@@ -39,11 +39,17 @@ const Projects: React.FC = () => {
       title: "Spotify Clone",
       description: "Clon de Spotify, recrea la experiencia de usuario de la plataforma de música de streaming.",
       technologies: ["https://cdn.builder.io/api/v1/image/assets/TEMP/a7628548eb8a655f42a8d4accca843d163ab1cfe79ebb30927a6f16caa5d2727?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac", "https://cdn.builder.io/api/v1/image/assets/TEMP/54530499fc7a36fd4bb6a70e7a7fee00ab373d0a391df07c707ac199c4f7ccb5?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac", "https://cdn.builder.io/api/v1/image/assets/TEMP/d2f231e759a88b4c1d36ceb6f1f0f4391cf2c932a57693654ec9a3f2ff25b8e0?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac", "https://cdn.builder.io/api/v1/image/assets/TEMP/15ba18250e88c710e2919453f0eaee1211111d2a1a86bee9de6f9d1592ecb005?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac"]
+    },
+     {
+      imageSrc: "https://cdna.artstation.com/p/assets/images/images/005/201/884/large/trippy-sun-pokedex-avec-pika.jpg?1489267325",
+      title: "Pokemon - Pokedex",
+      description: "Clon de Spotify, recrea la experiencia de usuario de la plataforma de música de streaming.",
+      technologies: [ "https://cdn.builder.io/api/v1/image/assets/TEMP/54530499fc7a36fd4bb6a70e7a7fee00ab373d0a391df07c707ac199c4f7ccb5?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac", "https://cdn.builder.io/api/v1/image/assets/TEMP/d2f231e759a88b4c1d36ceb6f1f0f4391cf2c932a57693654ec9a3f2ff25b8e0?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac", "https://cdn.builder.io/api/v1/image/assets/TEMP/15ba18250e88c710e2919453f0eaee1211111d2a1a86bee9de6f9d1592ecb005?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac"]
     }
   ];
 
   return (
-    <section id="proyectos" className="self-center mt-32 mr-20 max-w-full w-[608px] max-md:mt-10 max-md:mr-2.5">
+    <section id="proyectos" className="self-center mt-32 mr-64 max-w-full w-[608px] max-md:mt-10 max-md:mr-2.5">
       <div className="flex gap-5 max-md:flex-col">
         <div className="flex flex-col w-[91%] max-md:ml-0 max-md:w-full">
           <div className="flex flex-col mt-20 text-6xl text-center font-semibold leading-none text-white whitespace-nowrap max-md:mt-10 max-md:text-3xl">
