@@ -1,0 +1,93 @@
+---
+import {ICONS} from "../../components/data/IconsTecnologies";
+import Carrousel from "../Carrousel.astro";
+import Section from "./Section.astro";
+
+
+
+---
+
+<Section>
+    <div id="technologies" class="section-tecnologies">
+        <div class="technologies-container">
+            <!-- <h2 data-i18n="technologies.title">{t('technologies.title')}</h2>
+            <p data-i18n="technologies.description_1">{t('technologies.description_1')}</p>
+            <p data-i18n="technologies.description_2">{t('technologies.description_2')}</p>
+            <p data-i18n="technologies.linkTextPrefix">
+                {t('technologies.linkTextPrefix')}
+                <a href="https://www.linkedin.com/in/yaninaunrein/" target="_blank">LinkedIn</a>
+                <span data-i18n="technologies.linkTextSuffix">{t('technologies.linkTextSuffix')}</span>
+            </p> -->
+        </div>
+        <Carrousel classlist={['project-element']} icons={ICONS} />
+    </div>
+</Section>
+
+<style>
+    .section-tecnologies {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;  
+        background-color: #13151a;
+        text-align: center;
+    }
+
+    h2{
+        font-size: 2rem;
+        padding: 20px 0 10px 0;
+        display: inline-block;
+        position: relative;
+        color: #fff;
+        margin: 10px 0;
+    }
+
+    h2::before {
+        content: '';
+        position: absolute;
+        bottom: 0.80px; 
+        left: 0;
+        width: 15%; 
+        border-bottom: 4px solid #fb4ea1; 
+        white-space: nowrap; 
+    }
+
+    p{
+        font-size: 1.1rem;
+        line-height: 1.6;
+        text-align: center;
+        color: #fff;
+    }
+    a{
+        color: #61aee5;
+        transition: 0.3s ease-in;
+    }
+
+    a:hover{
+        cursor: pointer;
+        transform: translateY(-10px);
+        color: #FF3CAC;
+        text-decoration: underline;
+    }
+
+    body.open .section-tecnologies, body.open .project-element {
+        display: none;
+    }
+
+    body.open h2, body.open p {
+        display: none;
+   }
+
+
+    @media(min-width:968px){
+        .technologies-container{
+            max-width: 900px;       
+        }
+    }
+
+     @media(min-width:1024px){
+        .technologies-container{
+            max-width: 950px;       
+        }
+    }
+</style>

@@ -1,13 +1,14 @@
 ---
 import escritorio from "../../public/escritorio2.jpeg"
+import Hero from "./Hero.astro"
 ---
         
         
-        <div data-layername="landingpage" class="flex overflow-hidden flex-col bg-neutral-900">
+        <div data-layername="landingpage" class="flex overflow-hidden flex-col bg-neutral-900 w-screen h-screen">
             <header class="flex relative flex-col justify-center">
-              <img loading="lazy" src="../../public/escritorio4.jpeg" alt="" class="absolute inset-0 object-cover w-screen h-screen" style="" />
+              <img loading="lazy" src="../../public/escritorio4.jpeg" alt="" class="absolute inset-0 object-cover w-screen h-screen" />
               <div class="flex relative flex-col items-center px-20 pt-20 pb-96 w-screen  max-md:px-5 max-md:pb-24 max-md:max-w-full">
-                <nav data-layername="navbarButton" class="flex flex-wrap gap-4 -mt-10  items-center max-w-full text-lg text-white opacity-90">
+                <nav data-layername="navbarButton" class="flex flex-wrap gap-6 mb-0.5 -mt-10  items-center max-w-full text-lg text-white opacity-90">
                   <div class="inline-flex items-center">
                     <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/50b0f04f2cf971aca25b1938e9c2d65a06e47fe934c2b3c0649517558dd80f43?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac" alt="" class="object-contain z-10 self-start aspect-[0.85] w-[30px]" />
                     <a href="#inicio" class="hover:underline ml-1">Inicio</a>
@@ -33,9 +34,13 @@ import escritorio from "../../public/escritorio2.jpeg"
                     <a href="#contacto" class="hover:underline">Contacto</a>
                   </div>
                 </nav>
-                <div class="flex flex-col items-center mt-20 justify-center  mb-0 max-w-full w-[735px] max-md:mb-2.5 opacity-90 mx-auto">
+                <div class="flex flex-col items-center m justify-center  mb-0 max-w-full w-[790px] max-md:mb-2.5 opacity-90 mx-auto">
                   <div class="shrink-0 self-stretch h-px border border-white border-solid max-md:max-w-full" />
-                  
+                  <div>
+
+                    <Hero/>
+                  </div>
+<!--                   
                   <h2 data-layername="holaSoyTomasRamos" class="mt-36 ml-4 text-2xl font-medium text-center text-white max-md:mt-10">
                     Hola, Soy Tomas Ramos
                     <span class="hand-icon" data-astro-cid-anhloy43="">👋</span>
@@ -55,8 +60,15 @@ import escritorio from "../../public/escritorio2.jpeg"
                     </a>
                     <a href="https://www.linkedin.com/in/tomas-ramos-b810022b8/">
                       <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/3795b8f15ae19eeab9e4e37e46e4123457c415899e001c816cef8189a9a3d7ce?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac" alt="Social media icon" class="object-contain shrink-0 aspect-square w-[67px]" />
-                    </a>
+                    </a> -->
                   </div>
                 </div>
                 
             </header>
+
+            <style >
+              .background {
+  height: 300px; /* Ajusta este valor según tu necesidad */
+}
+
+            </style>

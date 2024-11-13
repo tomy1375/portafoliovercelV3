@@ -4,6 +4,7 @@ import Card from '../components/Card.astro';
 import ExperienceItem from '../components/ExperienceItem';
 import Projects from "../components/Projects"
 import Carousel from "../components/Carousel"
+import Technologies from '../components/Section/Technologies.astro';
 
 
 const technologies = ['React', 'Astro', 'Tailwind', 'TypeScript', 'Node.js', 'Figma'];
@@ -39,7 +40,8 @@ const technologies = ['React', 'Astro', 'Tailwind', 'TypeScript', 'Node.js', 'Fi
 			  </p>
 			  <div class="flex gap-5 justify-between items-center mt-36 max-w-full w-[878px] max-md:mt-10">
 			  </div>
-			  <Carousel items={technologies} client:visible />
+			  <!-- <Carousel items={technologies} client:visible /> -->
+			   <Technologies/>
 			</section>
 			<section class="flex justify-center items-center mt-64 max-md:mt-10">
 				<div class="max-w-5xl w-full px-5 ">
