@@ -5,6 +5,7 @@ import ExperienceItem from '../components/ExperienceItem';
 import Projects from "../components/Projects"
 import Carousel from "../components/Carousel"
 import Technologies from '../components/Section/Technologies.astro';
+import AboutMe from '../components/Section/AboutMe.astro';
 
 
 const technologies = ['React', 'Astro', 'Tailwind', 'TypeScript', 'Node.js', 'Figma'];
@@ -38,12 +39,15 @@ const technologies = ['React', 'Astro', 'Tailwind', 'TypeScript', 'Node.js', 'Fi
 			  <p class="self-end mt-6 text-lg leading-7 max-w-5xl mx-auto text-white text-center">
 				Especialista en desarrollo Frontend con formación Full Stack. Experto en HTML, CSS, JavaScript, React y Astro para crear interfaces dinámicas. Utilizo Tailwind CSS y Figma para diseño adaptable. En backend, domino Node.js y SQL. Mis conocimientos en Photoshop, Illustrator y After Effects aportan creatividad visual a cada proyecto.
 			  </p>
-			  <div class="flex gap-5 justify-between items-center mt-36 max-w-full w-[878px] max-md:mt-10">
+			  <div>
+				  <Technologies/>
 			  </div>
-			  <!-- <Carousel items={technologies} client:visible /> -->
-			   <Technologies/>
-			</section>
-			<section class="flex justify-center items-center mt-64 max-md:mt-10">
+			  <div class="flex gap-5 justify-between items-center mt-36 max-w-full w-[878px] ">
+			</div>
+			<!-- <Carousel items={technologies} client:visible /> -->
+		</section>
+		<AboutMe/>
+			<!-- <section class="flex justify-center items-center mt-64 max-md:mt-10">
 				<div class="max-w-5xl w-full px-5 ">
 				  <h2 data-layername="sobreMi" class="text-5xl text-center font-semibold leading-none text-white max-md:text-4xl  ">
 					Sobre Mí
@@ -82,6 +86,9 @@ const technologies = ['React', 'Astro', 'Tailwind', 'TypeScript', 'Node.js', 'Fi
 					<span data-layername="descargarCv" class="grow shrink w-[159px]">Descargar CV</span>
 				  </a>
 				</div>
+			  </section> -->
+			  <section class="flex justify-center items-center mt-64 max-md:mt-10">
+
 			  </section>
 			  <section class="flex justify-center items-center mt-52 max-md:mt-10">
 				<div class="max-w-5xl w-full px-5 ">
