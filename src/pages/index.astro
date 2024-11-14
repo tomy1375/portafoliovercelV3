@@ -1,23 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
 import ExperienceItem from '../components/ExperienceItem';
 import Projects from "../components/Projects"
-import Carousel from "../components/Carousel"
 import Technologies from '../components/Section/Technologies.astro';
 import AboutMe from '../components/Section/AboutMe.astro';
+import Contact from '../components/Section/Contact.astro';
 
-
-const technologies = ['React', 'Astro', 'Tailwind', 'TypeScript', 'Node.js', 'Figma'];
 ---
 
 <Layout title="Welcome to Astro.">
 	<main class="flex flex-col items-center self-center mt-36 max-w-full w-[1044px] max-md:mt-10">
-		<section>
-			
-		</section>
 		<ExperienceItem/>
-		<!-- <div class="absolute left-[calc(50%-508px)] w-1 h-[calc(100%-84px)] bg-violet-800 mt-24 ml-16"></div> -->
 		<div class="absolute left-[calc(50%-508px)] w-1 h-[calc(90%-84px)] bg-violet-800 mt-24 ml-16">		
 			<div class="absolute w-6 h-6 bg-pink-500 rounded-full box-shadow-custom" style="top: 65px; left: -10px;"></div>
 			<div class="absolute  w-6 h-6 bg-pink-500 rounded-full box-shadow-custom" style="top: 440px; left: -10px;"></div>
@@ -26,7 +19,10 @@ const technologies = ['React', 'Astro', 'Tailwind', 'TypeScript', 'Node.js', 'Fi
 		  </div>
 		  
 		</main>
-		<Projects/>
+		<div class="mt-20">
+
+			<Projects client:only/>
+		</div>
 		<section>
 			<section class="mt-64 max-md:mt-10 items-center">
 			  <h2 data-layername="tecnologias" class="text-center text-6xl font-semibold leading-none text-white max-md:text-4xl max-w-4xl mx-auto">
@@ -47,105 +43,8 @@ const technologies = ['React', 'Astro', 'Tailwind', 'TypeScript', 'Node.js', 'Fi
 			<!-- <Carousel items={technologies} client:visible /> -->
 		</section>
 		<AboutMe/>
-			<!-- <section class="flex justify-center items-center mt-64 max-md:mt-10">
-				<div class="max-w-5xl w-full px-5 ">
-				  <h2 data-layername="sobreMi" class="text-5xl text-center font-semibold leading-none text-white max-md:text-4xl  ">
-					Sobre Mí
-				  </h2>
-				  <div class="shrink-0 mt-1 items-start border-violet-800 border-solid border-[5px] h-[px] w-[925px] mx-auto" />
-				  <h3 data-layername="holaSoyTomasRamos" class="mt-9 text-2xl font-medium leading-none text-violet-800 text-center ml-36">
-					Hola, soy Tomas Ramos
-				  </h3>
-				  <div class="mt-7 max-w-full w-full">
-					<div class="flex gap-5 max-md:flex-col justify-center">
-					  <div class="flex flex-col w-2/5 max-md:ml-0 max-md:w-full">
-						<div class="flex flex-col justify-center p-5 mt-5 rounded-full border-violet-800 border-solid border-[5px] max-md:pl-5 max-md:mt-10">
-						  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/f4843b300d2101bdbc9ef738681866ec2a23fcca2dd84c51745cd5509198ba63?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac" alt="Tomas Ramos" class="object-contain w-full aspect-square" />
-						</div>
-					  </div>
-					  <div class="flex flex-col ml-5 w-4/5 max-md:ml-0 max-md:w-full px">
-						<p data-layername="soyUnApasionadoPorLaProgramacionLosVideojuegosMangasAnimesPerrosYLaFotografiaComoDesarrolladorFullStackCertificadoPorHenryCuentoConExperienciaEnDesarrolloWebYEnLaOptimizacionDeSistemasDeGestionDeContenidoEstudieLaLicenciaturaEnComposicionMusicalEnLaUniversidadNacionalDeCordobaYMisHabilidadesEnDisenoDigitalPhotoshopIllustratorAfterEffectsAportanUnaVisionEsteticaYCreativaAMisProyectosLograndoProductosDigitalesFuncionalesYVisualmenteAtractivos" class="text-lg font-light leading-8 text-white max-md:mt-10 max-md:max-w-full">
-						  <span class="">Soy un apasionado por la programación, los videojuegos, mangas, animes, perros y la fotografía. Como </span>
-						  <span class="text-violet-800">Desarrollador Full Stack certificado por Henry</span>
-						  <span class="">, cuento con experiencia en desarrollo web y en la optimización de sistemas de gestión de contenido. </span>
-						  <br />
-						  <br />
-						  <span class="">Estudié la </span>
-						  <span class="text-violet-800">Licenciatura en Composición Musical</span>
-						  <span class="text-violet-800"> en la Universidad Nacional de Córdoba</span>
-						  <span class="">, y mis habilidades en diseño digital (Photoshop, Illustrator, After Effects) aportan una visión estética y creativa a mis proyectos, logrando productos digitales funcionales y visualmente atractivos.</span>
-						</p>
-					  </div>
-					</div>
-				  </div>
-				  <p data-layername="siEstasInteresadoEnConocerMasSobreMiPuedesDescargarMiCurriculumVitae" class="mt-24 text-xl leading-none text-white max-md:mt-10 max-md:max-w-full text-center">
-					Si estás interesado en conocer más sobre mí, puedes descargar mi Curriculum Vitae:
-				  </p>
-				  <a href="#" class="flex gap-2.5 px-11 py-3.5 mt-16 max-w-full text-2xl leading-none text-white rounded-[89px] shadow-[0px_8px_21px_rgba(0,0,0,0.16)] w-[298px] max-md:px-5 max-md:mt-10 mx-auto">
-					<img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/a05dba6650ac1f3d77d6174427783d60532edb1015841cc5c39e9d83d9ff110a?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac" alt="" class="object-contain shrink-0 self-start aspect-square w-[35px]" />
-					<span data-layername="descargarCv" class="grow shrink w-[159px]">Descargar CV</span>
-				  </a>
-				</div>
-			  </section> -->
-			  <section class="flex justify-center items-center mt-64 max-md:mt-10">
-
-			  </section>
-			  <section class="flex justify-center items-center mt-52 max-md:mt-10">
-				<div class="max-w-5xl w-full px-5 ">
-				  <h2 data-layername="contactame" class="text-5xl font-semibold leading-none text-white max-md:text-4xl text-center">
-					Contáctame
-				  </h2>
-				  <div class="shrink-0 mt-1 border-violet-800 border-solid border-[5px] h-[9px] w-[125px] mx-auto" />
-				  <div data-layername="containerWrapper" class=" flex flex-wrap gap-8 items-center self-stretch px-5 mt-32 rounded-3xl border-2 border-solid bg-zinc-800 bg-opacity-80 border-gray-600 border-opacity-10 max-md:mt-10 max-md:max-w-full mx-auto">
-					<div data-layername="formWrapper" class="flex flex-col grow shrink self-stretch py-10 pr-5 pl-10 my-auto min-w-[240px] w-[440px] max-md:pl-5 max-md:max-w-full bg">
-					  <div data-layername="formHeading" class="flex flex-col max-w-full w-[415px]">
-						<h3 data-layername="trabajamosJuntos" class="text-3xl font-semibold tracking-tight text-white text-center">
-						  ¿Trabajamos juntos?
-						</h3>
-						<p data-layername="hablemosEstoyAbiertoANuevasOportunidadesYProyectosCreativos" class="mt-2 text-base tracking-normal text-white text-center">
-						  ¡Hablemos! Estoy abierto a nuevas oportunidades y proyectos creativos.
-						</p>
-					  </div>
-					  <form data-layername="form" class="flex flex-col mt-10 w-full text-base tracking-normal text-white text-opacity-60 max-md:mt-10">
-						<div data-layername="names" class="flex gap-3.5 items-start w-full">
-						  <input
-							type="text"
-							placeholder="Nombre y apellido"
-							aria-label="Nombre y apellido"
-							class="flex-1 shrink px-3.5 py-3 w-full rounded-md border border-solid bg-white bg-opacity-10 border-white border-opacity-20 min-w-[240px]"
-						  />
-						</div>
-						<input
-						  type="email"
-						  placeholder="Email"
-						  aria-label="Email"
-						  class="px-3.5 py-3 mt-3.5 w-full whitespace-nowrap rounded-md border border-solid bg-white bg-opacity-10 border-white border-opacity-20"
-						/>
-						<input
-						  type="text"
-						  placeholder="Asunto"
-						  aria-label="Asunto"
-						  class="px-3.5 py-3 mt-3.5 w-full whitespace-nowrap rounded-md border border-solid bg-white bg-opacity-10 border-white border-opacity-20"
-						/>
-						<textarea
-						  placeholder="Mensaje"
-						  aria-label="Mensaje"
-						  class="px-3.5 pt-3 pb-20 mt-3.5 w-full whitespace-nowrap rounded-md border border-solid bg-white bg-opacity-10 border-white border-opacity-20 min-h-[109px]"
-						></textarea>
-						<button
-						  type="submit"
-						  class="flex gap-2.5 justify-center items-center px-2.5 py-3.5 mt-3.5 w-full text-xl font-medium tracking-normal text-white whitespace-nowrap min-h-[53px] rounded-[76px]"
-						>
-						  <span data-layername="enviar" class="self-stretch my-auto">Enviar</span>
-						  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/af2a513859c4e7c1357ee670fd3dc327020532e5e8954457be616421ef23d6ce?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac" alt="" class="object-contain shrink-0 self-stretch my-auto aspect-square w-[27px]" />
-						</button>
-					  </form>
-					</div>
-					<img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/552f251cf52a8830d85c9d5b555f036ef6515128a70bb9d117bdaf4eea1aaafa?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac" alt="Contact illustration" class="object-contain grow shrink self-stretch my-auto aspect-square min-w-[240px] w-[374px] max-md:max-w-full" />
-				  </div>
-				</div>
-			  </section>
-			  
+			
+			  <Contact/>
 		</section>
 		  
 	</Layout>

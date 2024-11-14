@@ -1,0 +1,88 @@
+---
+// ContactForm.astro
+import SubmitButton from '../../components/buttons/SubmitButton';
+---
+
+<section class="flex justify-center items-center mt-52 max-md:mt-10">
+  <div class="max-w-5xl w-full px-5">
+    <h2 class="text-5xl font-semibold leading-none text-white max-md:text-4xl text-center">
+      Contáctame
+    </h2>
+    <div class="shrink-0 mt-1 border-violet-800 border-solid border-[5px] h-[9px] w-[125px] mx-auto"></div>
+    <div class="flex flex-wrap gap-8 items-center self-stretch px-5 mt-32 rounded-3xl border-2 border-solid bg-zinc-800 bg-opacity-80 border-gray-600 border-opacity-10 max-md:mt-10 max-md:max-w-full mx-auto">
+      <div class="flex flex-col grow shrink self-stretch py-10 pr-5 pl-10 my-auto min-w-[240px] w-[440px] max-md:pl-5 max-md:max-w-full">
+        <div class="flex flex-col max-w-full w-[415px]">
+          <h3 class="text-3xl font-semibold tracking-tight text-white text-center">
+            ¿Trabajamos juntos?
+          </h3>
+          <p class="mt-2 text-base tracking-normal text-white text-center">
+            ¡Hablemos! Estoy abierto a nuevas oportunidades y proyectos creativos.
+          </p>
+        </div>
+        <form id="contactForm" class="flex flex-col mt-10 w-full text-base tracking-normal text-white text-opacity-60 max-md:mt-10">
+          <div class="flex gap-3.5 items-start w-full">
+            <input
+              type="text"
+              name="name"
+              placeholder="Nombre y apellido"
+              aria-label="Nombre y apellido"
+              class="flex-1 shrink px-3.5 py-3 w-full rounded-md border border-solid bg-white bg-opacity-10 border-white border-opacity-20 min-w-[240px]"
+              required
+            />
+          </div>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            aria-label="Email"
+            class="px-3.5 py-3 mt-3.5 w-full whitespace-nowrap rounded-md border border-solid bg-white bg-opacity-10 border-white border-opacity-20"
+            required
+          />
+          <input
+            type="text"
+            name="subject"
+            placeholder="Asunto"
+            aria-label="Asunto"
+            class="px-3.5 py-3 mt-3.5 w-full whitespace-nowrap rounded-md border border-solid bg-white bg-opacity-10 border-white border-opacity-20"
+            required
+          />
+          <textarea
+            name="message"
+            placeholder="Mensaje"
+            aria-label="Mensaje"
+            class="px-3.5 pt-3 pb-20 mt-3.5 w-full whitespace-nowrap rounded-md border border-solid bg-white bg-opacity-10 border-white border-opacity-20 min-h-[109px]"
+            required
+          ></textarea>
+          <SubmitButton client:load onSubmit={() => {}} />
+        </form>
+      </div>
+      <img 
+        loading="lazy" 
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/552f251cf52a8830d85c9d5b555f036ef6515128a70bb9d117bdaf4eea1aaafa?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac" 
+        alt="Contact illustration" 
+        class="object-contain grow shrink self-stretch my-auto aspect-square min-w-[240px] w-[374px] max-md:max-w-full" 
+      />
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('contactForm') as HTMLFormElement;
+  const submitButton = form.querySelector('button[type="submit"]');
+  
+  submitButton.addEventListener('click', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    
+    try {
+      // Aquí iría la lógica para enviar el formulario a tu backend
+      console.log('Enviando formulario:', data);
+      await new Promise(resolve => setTimeout(resolve, 2000)); // Simula una petición de 2 segundos
+      console.log('Formulario enviado con éxito');
+      form.reset();
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error);
+    }
+  });
+</script>

@@ -2,7 +2,7 @@
 import Section from './Section.astro';
 
 import Download from '../buttons/Download.astro';
-
+import CVDownloadButton from '../buttons/ButtonDownload';
 
 ---
 
@@ -25,7 +25,7 @@ import Download from '../buttons/Download.astro';
 						</div>
 					  </div>
 					  <div class="flex flex-col ml-5 w-4/5 max-md:ml-0 max-md:w-full px">
-						<p data-layername="soyUnApasionadoPorLaProgramacionLosVideojuegosMangasAnimesPerrosYLaFotografiaComoDesarrolladorFullStackCertificadoPorHenryCuentoConExperienciaEnDesarrolloWebYEnLaOptimizacionDeSistemasDeGestionDeContenidoEstudieLaLicenciaturaEnComposicionMusicalEnLaUniversidadNacionalDeCordobaYMisHabilidadesEnDisenoDigitalPhotoshopIllustratorAfterEffectsAportanUnaVisionEsteticaYCreativaAMisProyectosLograndoProductosDigitalesFuncionalesYVisualmenteAtractivos" class="text-lg font-light leading-8 text-white max-md:mt-10 max-md:max-w-full">
+						<p data-layername="soyUnApasionadoPorLaProgramacionLosVideojuegosMangasAnimesPerrosYLaFotografiaComoDesarrolladorFullStackCertificadoPorHenryCuentoConExperienciaEnDesarrolloWebYEnLaOptimizacionDeSistemasDeGestionDeContenidoEstudieLaLicenciaturaEnComposicionMusicalEnLaUniversidadNacionalDeCordobaYMisHabilidadesEnDisenoDigitalPhotoshopIllustratorAfterEffectsAportanUnaVisionEsteticaYCreativaAMisProyectosLograndoProductosDigitalesFuncionalesYVisualmenteAtractivos" class="text-2xl font-light leading-8 text-white max-md:mt-10 max-md:max-w-full opacity-90">
 						  <span class="">Soy un apasionado por la programación, los videojuegos, mangas, animes, perros y la fotografía. Como </span>
 						  <span class="text-violet-800">Desarrollador Full Stack certificado por Henry</span>
 						  <span class="">, cuento con experiencia en desarrollo web y en la optimización de sistemas de gestión de contenido. </span>
@@ -38,16 +38,23 @@ import Download from '../buttons/Download.astro';
 						</p>
 					  </div>
 					</div>
-				  </div>
-				  <p data-layername="siEstasInteresadoEnConocerMasSobreMiPuedesDescargarMiCurriculumVitae" class="mt-24 text-xl leading-none text-white max-md:mt-10 max-md:max-w-full text-center">
-					Si estás interesado en conocer más sobre mí, puedes descargar mi Curriculum Vitae:
-				  </p>
-				  <a href="#" class="flex gap-2.5 px-11 py-3.5 mt-16 max-w-full text-2xl leading-none text-white rounded-[89px] shadow-[0px_8px_21px_rgba(0,0,0,0.16)] w-[298px] max-md:px-5 max-md:mt-10 mx-auto">
+                    </div>
+                    <!-- <a href="#" class="flex gap-2.5 px-11 py-3.5 mt-16 max-w-full text-2xl leading-none text-white rounded-[89px] shadow-[0px_8px_21px_rgba(0,0,0,0.16)] w-[298px] max-md:px-5 max-md:mt-10 mx-auto">
 					<img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/a05dba6650ac1f3d77d6174427783d60532edb1015841cc5c39e9d83d9ff110a?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac" alt="" class="object-contain shrink-0 self-start aspect-square w-[35px]" />
 					<span data-layername="descargarCv" class="grow shrink w-[159px]">Descargar CV</span>
-				  </a>
+                         </a> -->
+                         <div class="cv-container">
+                              <!-- <p >Si estás interesado en conocer más sobre mí, puedes descargar mi Curriculum Vitae:</p>                -->
+                              <p data-layername="siEstasInteresadoEnConocerMasSobreMiPuedesDescargarMiCurriculumVitae" class="mt-24 text-xl leading-none text-white max-md:mt-10 max-md:max-w-full text-center">
+                                 Si estás interesado en conocer más sobre mí, puedes descargar mi Curriculum Vitae:
+                              </p>
+                              <div class="mt-2">
+                                   <CVDownloadButton cvUrl="https://ejemplo.com/ruta-a-tu-cv.pdf" />
+                              </div>
+                           
+                         </div>
 				</div>
-			  </section>
+			  <!-- </section>
           <h2 class="text-center ml-10">Sobre Mi</h2>
           <div class="about-container">    
                <div class="img-container">             
@@ -66,7 +73,7 @@ import Download from '../buttons/Download.astro';
                <p >Si estás interesado en conocer más sobre mí, puedes descargar mi Curriculum Vitae:</p>               
                <Download />
           </div>
-     </section>
+     </section> -->
 </Section>
 
 
