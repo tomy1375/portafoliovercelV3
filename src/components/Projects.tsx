@@ -87,7 +87,7 @@ const Projects: React.FC = () => {
       imageSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/9691749d6cb5ab464a0e2426f72aad639528da016a112d1be4d95f9a8a5f554e?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac",
       title: "Hotel Esmeralda",
       description: "Proyecto final de Henry, desarrollé una aplicación integral de gestión hotelera tanto para el cliente como para administrador.",
-      technologies: ["JavaScript", "React", "Socket.io"],
+      technologies: ["JavaScript", "React", "Socket.io","PostreSQL"],
       githubLink: "https://github.com/yourusername/hotel-esmeralda",
       liveLink: "https://hotelesmeralda.netlify.app/restaurant"
     },
@@ -95,7 +95,7 @@ const Projects: React.FC = () => {
       imageSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/c75f588836b50a6236e844a3004d1b9d36299b5862c55fc98a6dbb78f07c3fd4?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac",
       title: "Spotify Clone",
       description: "Clon de Spotify, recrea la experiencia de usuario de la plataforma de música de streaming.",
-      technologies: ["React", "CSS", "JavaScript", "Astro"],
+      technologies: ["React", "CSS", "TypeScript", "Astro"],
       githubLink: "https://github.com/yourusername/spotify-clone",
       liveLink: "https://spotify-clone.vercel.app"
     },
