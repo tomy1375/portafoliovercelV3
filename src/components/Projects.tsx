@@ -40,13 +40,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       <div className="p-6">
         <h3 className="text-2xl font-bold mb-2 text-gray-800 dark:text-white">{title}</h3>
         <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">{description}</p>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {technologies && technologies.map((tech, index) => (
-            <span key={index} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200">
-              <img src={tech} alt="Technology icon" className="w-4 h-4 mr-1" />
-              {tech.split('/').pop()?.split('.')[0]}
-            </span>
-          ))}
+        <div className="flex flex-wrap gap-8 mb-4">
+          {technologies.map((tech, index) => {
+            const icon = ICONS.find(icon => icon.name.toLowerCase() === tech.toLowerCase());
+            return (
+              <span key={index} className="">
+                {icon && (
+                  <span className="w-6 h-6" dangerouslySetInnerHTML={{ __html: icon.svgPath }} />
+                )}
+              </span>
+            );
+          })}
         </div>
       </div>
       <div className="flex justify-between p-6 pt-0">
@@ -82,16 +86,16 @@ const Projects: React.FC = () => {
     {
       imageSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/9691749d6cb5ab464a0e2426f72aad639528da016a112d1be4d95f9a8a5f554e?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac",
       title: "Hotel Esmeralda",
-      description: "Proyecto final de Henry, desarrollé una aplicación integral de gestión hotelera.",
-      technologies: ["https://cdn.builder.io/api/v1/image/assets/TEMP/54530499fc7a36fd4bb6a70e7a7fee00ab373d0a391df07c707ac199c4f7ccb5?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac", "https://cdn.builder.io/api/v1/image/assets/TEMP/808d0808186f83645023e6717b1fbb48bcc236d15cbc749a4bfed4edd2a75e23?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac", "https://cdn.builder.io/api/v1/image/assets/TEMP/5b584f91c68f8b21a1b7dcef9e485b54bf537ee05b5c2573c9a5d09e86a2aa40?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac", "https://cdn.builder.io/api/v1/image/assets/TEMP/97bbf0293197b4dd7794a995b8bf1ea7ac86bfcd03fadd2f276274f96d6a4c1e?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac", "https://cdn.builder.io/api/v1/image/assets/TEMP/4999dec32e740df53649cdf5146b93b1717f7f65fcd8a22fa525b3e4941a8714?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac"],
+      description: "Proyecto final de Henry, desarrollé una aplicación integral de gestión hotelera tanto para el cliente como para administrador.",
+      technologies: ["JavaScript", "React", "Socket.io"],
       githubLink: "https://github.com/yourusername/hotel-esmeralda",
-      liveLink: "https://hotel-esmeralda.vercel.app"
+      liveLink: "https://hotelesmeralda.netlify.app/restaurant"
     },
     {
       imageSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/c75f588836b50a6236e844a3004d1b9d36299b5862c55fc98a6dbb78f07c3fd4?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac",
       title: "Spotify Clone",
       description: "Clon de Spotify, recrea la experiencia de usuario de la plataforma de música de streaming.",
-      technologies: ["https://cdn.builder.io/api/v1/image/assets/TEMP/a7628548eb8a655f42a8d4accca843d163ab1cfe79ebb30927a6f16caa5d2727?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac", "https://cdn.builder.io/api/v1/image/assets/TEMP/54530499fc7a36fd4bb6a70e7a7fee00ab373d0a391df07c707ac199c4f7ccb5?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac", "https://cdn.builder.io/api/v1/image/assets/TEMP/d2f231e759a88b4c1d36ceb6f1f0f4391cf2c932a57693654ec9a3f2ff25b8e0?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac", "https://cdn.builder.io/api/v1/image/assets/TEMP/15ba18250e88c710e2919453f0eaee1211111d2a1a86bee9de6f9d1592ecb005?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac"],
+      technologies: ["React", "CSS", "JavaScript", "Astro"],
       githubLink: "https://github.com/yourusername/spotify-clone",
       liveLink: "https://spotify-clone.vercel.app"
     },
@@ -99,7 +103,7 @@ const Projects: React.FC = () => {
       imageSrc: "https://cdna.artstation.com/p/assets/images/images/005/201/884/large/trippy-sun-pokedex-avec-pika.jpg?1489267325",
       title: "Pokemon - Pokedex",
       description: "Una Pokedex interactiva que muestra información detallada sobre diferentes Pokémon.",
-      technologies: ["https://cdn.builder.io/api/v1/image/assets/TEMP/54530499fc7a36fd4bb6a70e7a7fee00ab373d0a391df07c707ac199c4f7ccb5?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac", "https://cdn.builder.io/api/v1/image/assets/TEMP/d2f231e759a88b4c1d36ceb6f1f0f4391cf2c932a57693654ec9a3f2ff25b8e0?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac", "https://cdn.builder.io/api/v1/image/assets/TEMP/15ba18250e88c710e2919453f0eaee1211111d2a1a86bee9de6f9d1592ecb005?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac"],
+      technologies: ["HTML", "CSS", "JavaScript","React"],
       githubLink: "https://github.com/yourusername/pokemon-pokedex",
       liveLink: "https://pokemon-pokedex.vercel.app"
     }
