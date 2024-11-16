@@ -1,46 +1,56 @@
 ---
 import Hero from "./Hero.astro"
+import HomeIcons from "../components/icons/HomeIcons.astro"
+import Person from "../components/icons/Person.astro"
+import ExperienciaIcon from "../components/icons/ExperienciaIcon.astro"
+import ProyectoIcon from "../components/icons/ProyectosIcon.astro"
+import TecnologiasIcon from "../components/icons/TecnologiasIcon.astro"
+import ContactoIcon from "../components/icons/ContactoIcon.astro"
+import { ProjectorIcon } from "lucide-react"
 ---
 
-<div data-layername="landingpage" class="flex overflow-hidden flex-col bg-neutral-900 w-screen h-screen">
+<div data-layername="landingpage" id="inicio" class="flex overflow-hidden flex-col bg-neutral-900 w-screen h-screen">
   <header class="flex relative flex-col justify-center">
     <img loading="lazy" src="../../public/escritorio4.jpeg" alt="" class="absolute inset-0 object-cover w-screen h-screen" />
-    <div class="flex relative flex-col items-center px-20 pt-10 pb-96 w-screen max-md:px-5 max-md:pb-24 max-md:max-w-full">
-      <div class="bg-black bg-opacity-50 rounded-full px-6 py-3 mb-12">
-        <nav data-layername="navbarButton" class="flex flex-wrap justify-center gap-6 items-center max-w-full text-base text-white">
-          <a href="#inicio" class="btnd group">
-            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/50b0f04f2cf971aca25b1938e9c2d65a06e47fe934c2b3c0649517558dd80f43?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac" alt="" class="object-contain z-10 self-start aspect-[0.85] w-[30px] inline-block mr-1 group-hover:filter group-hover:brightness-125" />
-            Inicio
-          </a>
-          <a href="#sobreMi" class="btnd group">
-            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/a698e2bd2e25291687727273cf6eae3fe4410c1fe764e72fbd2bf0bb7442f54e?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac" alt="" class="object-contain z-10 self-start mt-0 aspect-square w-[30px] inline-block mr-1 group-hover:filter group-hover:brightness-125" />
-            Sobre mi
-          </a>
-          <a href="#experiencia" class="btnd group">
-            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/27d3c7125be9da30d6e8b3360fa8aea819e105cbed21d9e7abda33b27a2d5eb2?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac" alt="" class="object-contain aspect-square w-[30px] inline-block mr-1 group-hover:filter group-hover:brightness-125" />
-            Experiencia
-          </a>
-          <a href="#proyectos" class="btnd group">
-            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/d30f27e24410bb23549b0eadd489026d9a52af18029d1c11f4a1c8d0d4a63ebd?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac" alt="" class="object-contain z-10 mt-0 mr-1 aspect-square w-[28px] inline-block group-hover:filter group-hover:brightness-125" />
-            Proyectos
-          </a>
-          <a href="#tecnologias" class="btnd group">
-            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/a3bd696a52521aea47e5c41deffdaf4edd7935b2b3e22d9f08da7c2767b745f3?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac" alt="" class="object-contain mt-0 ml aspect-square w-[30px] inline-block mr-1 group-hover:filter group-hover:brightness-125" />
-            Tecnologias
-          </a>
-          <a href="#contacto" class="btnd group">
-            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/50bd507349116aabac70884f9d1522fd06afe88d6ff5a5d351a4836dc7a63a00?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac" alt="" class="object-contain z-10 mt-0 aspect-square w-[30px] inline-block mr-1 group-hover:filter group-hover:brightness-125" />
-            Contacto
-          </a>
-        </nav>
-      </div>
-      <div class="flex flex-col items-center m justify-center mb-0 max-w-full w-[790px] max-md:mb-2.5 opacity-90 mx-auto">
-        <!-- <div class="shrink-0 self-stretch h-px border border-white border-solid max-md:max-w-full" /> -->
-        <div>
-          <Hero/>
+    <div id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+      <div class="flex relative flex-col items-center px-20 pt-10 w-screen max-md:px-5 max-md:max-w-full">
+        <div class="bg-black bg-opacity-50 rounded-full px-6 py-3 transition-all duration-300">
+          <nav data-layername="navbarButton" class="flex flex-wrap justify-center gap-6 items-center max-w-full text-base text-white opacity-80">
+            <a href="#inicio" class="btnd group">
+              <HomeIcons className="w-4 h-4 mr-1 group-hover:filter transition-all duration-300" />
+              <span class="transition-all duration-300">Inicio</span>
+            </a>
+            <a href="#sobreMi" class="btnd group">
+              <Person class="object-contain z-10 self-start mt-0 aspect-square w-[30px] inline-block mr-1 group-hover:filter group-hover:brightness-125 transition-all duration-300" />
+              <span class="transition-all duration-300">Sobre mí</span>
+            </a>
+            <a href="#experiencia" class="btnd group">
+              <ExperienciaIcon className="w-9 h-9 mr-1 group-hover:filter transition-all duration-300"/>
+              <span class="transition-all duration-300">Experiencia</span>
+              <!-- <HomeIcons className="mr-1 group-hover:filter transition-all duration-300"/> -->
+            </a>
+            <a href="#proyectos" class="btnd group">
+              <ProyectoIcon className="w-9 h-9 mr-1 group-hover:filter transition-all duration-300"/>
+              <span class="transition-all duration-300">Proyectos</span>
+            </a>
+            <a href="#tecnologias" class="btnd group">
+              <TecnologiasIcon/>
+              <span class="transition-all duration-300">Tecnologías</span>
+            </a>
+            <a href="#contacto" class="btnd group">
+              <ContactoIcon/>
+              <!-- <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/50bd507349116aabac70884f9d1522fd06afe88d6ff5a5d351a4836dc7a63a00?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac" alt="" class="object-contain z-10 mt-0 aspect-square w-[30px] inline-block mr-1 group-hover:filter group-hover:brightness-125 transition-all duration-300" /> -->
+              <span class="transition-all duration-300">Contacto</span>
+            </a>
+          </nav>
         </div>
       </div>
-    </div>           
+    </div>
+    <div class="flex flex-col items-center m justify-center mb-0 max-w-full w-[790px] max-md:mb-2.5 opacity-90 mx-auto mt-40">
+      <div>
+        <Hero/>
+      </div>
+    </div>
   </header>
 </div>
 
@@ -52,7 +62,6 @@ import Hero from "./Hero.astro"
     padding: 0.2em 0.4em;
     margin: 0 0.2em;
     color: #ffffff;
-    text-transform: uppercase;
     position: relative;
     transition: 0.5s ease;
     cursor: pointer;
@@ -97,15 +106,40 @@ import Hero from "./Hero.astro"
 
   @media (max-width: 768px) {
     .btnd {
-      font-size: 16px;
-      padding: 0.2em 0.4em;
+      font-size: 14px;
+      padding: 0.1em 0.3em;
     }
+  }
+
+  .navbar-scrolled {
+    background-color: rgba(0, 0, 0, 0.8);
+    /* padding-top: 0.1rem; */
+    padding-bottom: 0.5rem;
+  }
+
+  .navbar-scrolled .btnd {
+    font-size: 14px;
+  }
+
+  .navbar-scrolled img,
+  .navbar-scrolled :global(svg) {
+    width: 24px;
+    height: 24px;
   }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', (event) => {
+    const navbar = document.getElementById('navbar');
     const navLinks = document.querySelectorAll('.btnd');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        navbar.classList.add('navbar-scrolled');
+      } else {
+        navbar.classList.remove('navbar-scrolled');
+      }
+    });
 
     navLinks.forEach((link) => {
       link.addEventListener('click', (e) => {
@@ -122,7 +156,6 @@ import Hero from "./Hero.astro"
       });
     });
 
-    // Intersection Observer para detectar la sección visible
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {

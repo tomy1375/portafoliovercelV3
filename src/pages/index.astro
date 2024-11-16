@@ -5,27 +5,32 @@ import Projects from "../components/Projects"
 import Technologies from '../components/Section/Technologies.astro';
 import AboutMe from '../components/Section/AboutMe.astro';
 import Contact from '../components/Section/Contact.astro';
-
+import Footer from '../components/Section/Footer.astro';
 ---
 
-<Layout title="Welcome to Astro.">
-	<main class="flex flex-col items-center self-center mt-36 w-full max-w-[1044px] px-4 max-md:mt-10">
+<Layout  title="Welcome to Astro.">
+	<main id="experiencia" class="flex flex-col items-center self-center mt-36 w-full max-w-[1044px] px-4 max-md:mt-10">
 		<ExperienceItem/>
-		<div class="absolute left-[calc(50%-508px)] w-1 h-[calc(14%-10px)] bg-violet-800 mt-24 ml-16 opacity-80">		
-			<div class="absolute w-6 h-6 bg-pink-500 rounded-full box-shadow-custom" style="top: 65px; left: -10px;"></div>
-			<div class="absolute  w-6 h-6 bg-pink-500 rounded-full box-shadow-custom" style="top: 440px; left: -10px;"></div>
+		<!-- <div class="absolute left-[calc(50%-508px)] w-1 h-[calc(14%-10px)] bg-violet-800 mt-52 ml-16 opacity-80">		
+			<div class="absolute w-6 h-6 bg-pink-500 rounded-full box-shadow-custom glow-effect" style="top: 65px; left: -10px;"></div>
+			<div class="absolute w-6 h-6 bg-pink-500 rounded-full box-shadow-custom glow-effect" style="top: 440px; left: -10px;"></div>
 		<div class="relative flex items-center">
 			<div class="glow-circle"></div>
-		  </div>
+		  </div> -->
 		  
 		</main>
-		<div class="mt-20 ">
+		<section>
+			
+		</section>
+		<div id="proyectos" class="mt-20 ">
+			<section id="proyectos" class="mt-12">
 
-			<Projects client:only/>
+				<Projects client:only/>
+			</section>
 		</div>
 		<section id="tecnologias">
-			<section class="mt-64 max-md:mt-10 items-center">
-			  <h2 data-layername="tecnologias" class="text-center text-6xl font-semibold leading-none text-white max-md:text-4xl max-w-4xl mx-auto">
+			<section class="mt-52 max-md:mt-10 items-center">
+			  <h2 data-layername="tecnologias" class="text-center text-6xl font-semibold leading-none text-white max-md:text-4xl max-w-4xl mx-auto mt">
 				Tecnologías
 			  </h2>
 			  <div class="shrink-0 mt-2.5 border-violet-800 border-solid border-[5px] h-[9px] w-[125px] mx-auto" />
@@ -41,10 +46,15 @@ import Contact from '../components/Section/Contact.astro';
 			  <div class="flex gap-5 justify-between items-center mt-36 max-w-full w-[878px] ">
 			</div>
 			<!-- <Carousel items={technologies} client:visible /> -->
-		</section>
+		</section >
+		<section id="sobreMi">
 		<AboutMe/>
+	</section>
+	<section id="contacto">
+			<Contact/>
 			
-			  <Contact/>
+		</section>
+		<Footer/>
 		</section>
 		  
 	</Layout>
@@ -65,5 +75,24 @@ import Contact from '../components/Section/Contact.astro';
 				  0 0 20px rgba(255, 0, 127, 0.6),
 				  0 0 30px rgba(255, 0, 127, 0.4);
 	}
+	.glow-effect {
+    animation: glow 2s ease-in-out infinite;
+  }
+  @keyframes glow {
+    0% {
+      box-shadow: 0 0 10px rgba(255, 0, 127, 0.8),
+                  0 0 20px rgba(255, 0, 127, 0.6),
+                  0 0 30px rgba(255, 0, 127, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(255, 0, 127, 1),
+                  0 0 40px rgba(255, 0, 127, 0.8),
+                  0 0 60px rgba(255, 0, 127, 0.6);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(255, 0, 127, 0.8),
+                  0 0 20px rgba(255, 0, 127, 0.6),
+                  0 0 30px rgba(255, 0, 127, 0.4);
+    }
+  }
 		  </style>
-		

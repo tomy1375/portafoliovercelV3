@@ -1,35 +1,38 @@
 import React from 'react';
-import './project-card.css';
-
 
 interface ExperienceItemProps {
   title: string;
   role: string;
   date: string;
   description: string;
+  isFirst: boolean;
+  isLast: boolean;
 }
 
-const ExperienceItem: React.FC<ExperienceItemProps> = ({ title, role, date, description }) => {
+const ExperienceItem: React.FC<ExperienceItemProps> = ({ title, role, date, description, isFirst, isLast }) => {
   return (
-    <div className='experience-item mt-12 flex flex-1 ml-6'>
-      <div className="flex flex-col items-start self-start mt-4 pr-12 pb-7 pl-8 ml-20 max-w-full text-2xl font-medium leading-none text-white rounded-2xl opacity-80">
-        <div className="flex flex-wrap gap-6 max-w-full">
-          <div className="flex-auto text-center max-md:max-w-full">{title}</div>
+    <div className="relative flex items-start pb-12">
+      <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-violet-800 opacity-80">
+        <div className={`absolute mt-14 w-6 h-6 bg-pink-500 rounded-full box-shadow-custom glow-effect -left-[11px] ${isFirst ? 'top-0' : '-top-3'}`}></div>
+        {isLast && <div className=""></div>}
+      </div>
+      <div className="ml-12 experience-item flex-1">
+        <div className="flex flex-col items-start self-start p-8 text-white rounded-2xl opacity-80">
+          <h3 className="text-2xl font-medium">{title}</h3>
+          <p className="mt-1 text-lg">{role}</p>
+          <p className="mt-1 font-light text-zinc-400 text-base">{date}</p>
+          <p className="mt-4 text-lg font-light leading-7">{description}</p>
+          <a href="#" className="mt-4 text-pink-500 hover:text-pink-400 transition-colors">Ver más</a>
         </div>
-        <div className="mt-1 max-md:ml-2 text-lg">{role}</div>
-        <div className="mt-1 font-light text-zinc-400 max-md:ml-2 text-base">{date}</div>
-        <div className="self-end mt-4 text-lg font-light leading-7 max-md:max-w-full">{description}</div>
-        <div className="mt-4 ml-16 text-red-600 max-md:ml-2">Link</div>
       </div>
     </div>
   );
 };
 
-
 const Experience: React.FC = () => {
   const experiences = [
     {
-      title: "Freelancer - Colaboracion en sitio Tower Cem",
+      title: "Freelancer - Colaboración en sitio Tower Cem",
       role: "Diseñador y Frontend Developer",
       date: "Junio 2024",
       description: "Diseñé en Figma las secciones de Contacto e Historia de la Empresa, enfocándome en una experiencia de usuario intuitiva y visualmente coherente con la identidad de la marca. Para el desarrollo front-end, utilicé Next.js y React, logrando una interfaz rápida y optimizada mediante renderizado del lado del servidor y rutas dinámicas que mejoran el SEO y la velocidad de carga."
@@ -43,14 +46,21 @@ const Experience: React.FC = () => {
   ];
 
   return (
-    <section id="experiencia" className="flex flex-col items-center self-center max-w-full  max-md:mt-10">
-      <h2 data-layername="experiencia" className="self-start ml-20 text-6xl font-semibold leading-none text-center text-white max-md:ml-2.5 max-md:text-4xl opacity-90">
+    <section id="experiencia" className="flex flex-col items-center self-center max-w-full px-4  md:mt-36">
+      <h2 data-layername="experiencia" className="text-5xl md:text-6xl font-semibold leading-none text-center text-white opacity-90 mb-4">
         Experiencia
+      <div className="w-20 h-2 bg-violet-800 mb-12 mt-2"></div>
       </h2>
-      <div className="shrink-0 self-start mt-2 ml-20 border-violet-800 border-solid border-[5px] h-[9px] w-[78px] max-md:ml-2.5" />
-      {experiences.map((exp, index) => (
-        <ExperienceItem key={index} {...exp} />
-      ))}
+      <div className="w-full max-w-4xl">
+        {experiences.map((exp, index) => (
+          <ExperienceItem 
+            key={index} 
+            {...exp} 
+            isFirst={index === 0}
+            isLast={index === experiences.length - 1}
+          />
+        ))}
+      </div>
     </section>
   );
 };
