@@ -1,8 +1,8 @@
 ---
-import SubmitButton from '../../components/buttons/SubmitButton';
+import { ContactForm } from "../ContactForm";
 ---
 
-<section  class="flex justify-center items-center mt-52 max-md:mt-10">
+<section class="flex justify-center items-center mt-52 max-md:mt-10">
   <div class="max-w-5xl w-full px-5">
     <h2 class="text-5xl font-semibold leading-none text-white max-md:text-4xl text-center">
       Contáctame
@@ -18,42 +18,7 @@ import SubmitButton from '../../components/buttons/SubmitButton';
             ¡Hablemos! Estoy abierto a nuevas oportunidades y proyectos creativos.
           </p>
         </div>
-        <form id="contactForm" class="flex flex-col mt-10 w-full text-base tracking-normal text-white text-opacity-60 max-md:mt-10">
-          <div class="flex gap-3.5 items-start w-full">
-            <input
-              type="text"
-              name="name"
-              placeholder="Nombre y apellido"
-              aria-label="Nombre y apellido"
-              class="flex-1 shrink px-3.5 py-3 w-full rounded-md border border-solid bg-white bg-opacity-10 border-white border-opacity-20 min-w-[240px]"
-              required
-            />
-          </div>
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            aria-label="Email"
-            class="px-3.5 py-3 mt-3.5 w-full whitespace-nowrap rounded-md border border-solid bg-white bg-opacity-10 border-white border-opacity-20"
-            required
-          />
-          <input
-            type="text"
-            name="subject"
-            placeholder="Asunto"
-            aria-label="Asunto"
-            class="px-3.5 py-3 mt-3.5 w-full whitespace-nowrap rounded-md border border-solid bg-white bg-opacity-10 border-white border-opacity-20"
-            required
-          />
-          <textarea
-            name="message"
-            placeholder="Mensaje"
-            aria-label="Mensaje"
-            class="px-3.5 pt-3 pb-20 mt-3.5 w-full whitespace-nowrap rounded-md border border-solid bg-white bg-opacity-10 border-white border-opacity-20 min-h-[109px]"
-            required
-          ></textarea>
-          <SubmitButton client:load onSubmit={() => {}} />
-        </form>
+        <ContactForm client:load />
       </div>
       <img 
         loading="lazy" 
@@ -64,24 +29,3 @@ import SubmitButton from '../../components/buttons/SubmitButton';
     </div>
   </div>
 </section>
-
-<script>
-  const form = document.getElementById('contactForm') as HTMLFormElement;
-  const submitButton = form.querySelector('button[type="submit"]');
-  
-  submitButton.addEventListener('click', async (e) => {
-    e.preventDefault();
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-    
-    try {
-      // Aquí iría la lógica para enviar el formulario a tu backend
-      console.log('Enviando formulario:', data);
-      await new Promise(resolve => setTimeout(resolve, 2000)); // Simula una petición de 2 segundos
-      console.log('Formulario enviado con éxito');
-      form.reset();
-    } catch (error) {
-      console.error('Error al enviar el formulario:', error);
-    }
-  });
-</script>
