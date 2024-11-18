@@ -89,7 +89,7 @@ const Projects: React.FC = () => {
       description: "Proyecto final de Henry, desarrollé una aplicación integral de gestión hotelera tanto para el cliente como para administrador.",
       technologies: ["JavaScript", "React", "Socket.io","PostreSQL"],
       githubLink: "https://github.com/yourusername/hotel-esmeralda",
-      liveLink: "https://hotelesmeralda.netlify.app/restaurant"
+      liveLink: "https://hotelesmeralda.netlify.app/"
     },
     {
       imageSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/c75f588836b50a6236e844a3004d1b9d36299b5862c55fc98a6dbb78f07c3fd4?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac",
@@ -117,13 +117,13 @@ const Projects: React.FC = () => {
         transition={{ duration: 0.5 }}
         className="text-center mb-12"
       >
-        <h2 className="text-4xl font-bold mb-4 text-gray-800 dark:text-white">Proyectos</h2>
-        <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+        <h2 className="text-5xl font-bold mb-2 text-gray-800 dark:text-white">Proyectos</h2>
+        <div className="w-24 h-2 bg-violet-800 mx-auto mb-6"></div>
         <p className="text-xl text-gray-600 dark:text-gray-300">
           <span>Todo lo que puedas </span>
-          <span className="text-blue-600 font-semibold">imaginar</span>
+          <span className="text-violet-800 font-semibold">imaginar</span>
           <span>, lo podrás </span>
-          <span className="text-blue-600 font-semibold">programar</span>
+          <span className="text-violet-800 font-semibold">programar</span>
         </p>
       </motion.div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">

@@ -4,26 +4,31 @@ import React, { useState } from 'react'
 import { Download } from 'lucide-react'
 
 interface CVDownloadButtonProps {
-  cvUrl: string;
   fileName?: string;
 }
 
-export default function CVDownloadButton({ cvUrl, fileName = "mi-cv.pdf" }: CVDownloadButtonProps) {
+export default function CVDownloadButton({ fileName = "cv.pdf" }: CVDownloadButtonProps) {
   const [isDownloading, setIsDownloading] = useState<boolean>(false)
 
-  const handleDownload = () => {
+  const handleDownload = async () => {
     setIsDownloading(true)
-    // Simular un retraso en la descarga
-    setTimeout(() => {
-      const link: HTMLAnchorElement = document.createElement("a")
-      link.href = cvUrl
+    try {
+      // Asumiendo que el archivo está en /public/cv/nombre-archivo.pdf
+      const pdfPath = `/cv/${fileName}`
+      const link = document.createElement('a')
+      link.href = pdfPath
       link.download = fileName
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)
-      
-      setIsDownloading(false)
-    }, 1500) // Simula 1.5 segundos de descarga
+    } catch (error) {
+      console.error('Error al descargar el archivo:', error)
+    } finally {
+      // Pequeño delay para mostrar la animación
+      setTimeout(() => {
+        setIsDownloading(false)
+      }, 800)
+    }
   }
 
   return (
@@ -31,7 +36,7 @@ export default function CVDownloadButton({ cvUrl, fileName = "mi-cv.pdf" }: CVDo
       onClick={handleDownload}
       disabled={isDownloading}
       className={`
-        relative overflow-hidden px-6 py-3 rounded-full
+        relative overflow-hidden px-8 py-3 rounded-full
         bg-gradient-to-r from-purple-500 to-indigo-600
         text-white font-semibold text-lg
         transition-all duration-300 ease-in-out

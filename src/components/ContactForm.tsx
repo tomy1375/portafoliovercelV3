@@ -43,8 +43,8 @@ export function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col mt-10 w-full text-base tracking-normal text-white text-opacity-60 max-md:mt-10">
-      <div className="flex gap-3.5 items-start w-full">
+    <form onSubmit={handleSubmit} className="flex flex-col mt-10 w-full text-base tracking-normal text-white text-opacity-60 max-md:mt-10 ">
+      <div className="flex gap-3.5 items-start w-full ">
         <input
           type="text"
           name="name"
