@@ -36,7 +36,7 @@ export default function CVDownloadButton({ fileName = "cv.pdf" }: CVDownloadButt
       onClick={handleDownload}
       disabled={isDownloading}
       className={`
-        relative overflow-hidden px-8 py-3 rounded-full
+        relative overflow-hidden px-8 py-3 rounded-lg
         bg-gradient-to-r from-purple-500 to-indigo-600
         text-white font-semibold text-lg
         transition-all duration-300 ease-in-out

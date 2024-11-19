@@ -1,50 +1,56 @@
-import React, { useState } from 'react';
+'use client'
+
+import React, { useState, useRef } from 'react';
 import type { FormEvent } from 'react';
+import Swal from 'sweetalert2';
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
-  const [errorMessage, setErrorMessage] = useState<string>('');
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus(null);
-    setErrorMessage('');
 
-    const formData = new FormData(e.currentTarget);
+    const formData = new FormData(formRef.current!);
+
+    formData.append('access_key', '56a77bea-6ef6-4788-b4d4-58ed2353ee43');
 
     try {
-      const response = await fetch('/api/send-email', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        body: formData,
+        body: formData
       });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
 
       const result = await response.json();
 
-      if (result.success) {
-        setSubmitStatus('success');
-        e.currentTarget.reset();
+      if (response.ok) {
+        Swal.fire({
+          icon: 'success',
+          title: '¡Éxito!',
+          text: 'Mensaje enviado con éxito',
+          confirmButtonColor: '#9333ea', // Tailwind's purple-600
+        });
+        formRef.current?.reset();
       } else {
-        setSubmitStatus('error');
-        setErrorMessage(result.error || 'Ocurrió un error al enviar el mensaje.');
+        throw new Error(result.message || 'Error al enviar el mensaje');
       }
     } catch (error) {
       console.error('Error al enviar el formulario:', error);
-      setSubmitStatus('error');
-      setErrorMessage('Error de conexión. Por favor, intenta de nuevo.');
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Error al enviar el mensaje. Por favor, intenta de nuevo.',
+        confirmButtonColor: '#9333ea', // Tailwind's purple-600
+      });
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col mt-10 w-full text-base tracking-normal text-white text-opacity-60 max-md:mt-10 ">
-      <div className="flex gap-3.5 items-start w-full ">
+    <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col mt-10 w-full text-base tracking-normal text-white text-opacity-60 max-md:mt-10">
+      <div className="flex gap-3.5 items-start w-full">
         <input
           type="text"
           name="name"
@@ -84,12 +90,6 @@ export function ContactForm() {
       >
         {isSubmitting ? 'Enviando...' : 'Enviar mensaje'}
       </button>
-      {submitStatus === 'success' && (
-        <p className="mt-3 text-green-500">Mensaje enviado con éxito!</p>
-      )}
-      {submitStatus === 'error' && (
-        <p className="mt-3 text-red-500">{errorMessage}</p>
-      )}
     </form>
   );
 }
