@@ -37,7 +37,7 @@ const Experience: React.FC = () => {
       role: "Diseñador y Frontend Developer",
       date: "Junio 2024",
       description: "Diseñé en Figma las secciones de Contacto e Historia de la Empresa, enfocándome en una experiencia de usuario intuitiva y visualmente coherente con la identidad de la marca. Para el desarrollo front-end, utilicé Next.js y React, logrando una interfaz rápida y optimizada mediante renderizado del lado del servidor y rutas dinámicas que mejoran el SEO y la velocidad de carga.",
-      link: "/experience/tower-cem"
+      link: "https://www.towerscem.com/"
     },
     {
       title: "Trabajo Final - Creación página de Hotel",

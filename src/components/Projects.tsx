@@ -59,7 +59,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             href={githubLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+            className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500 transition-colors"
           >
             <Github className="w-4 h-4 mr-2" />
             GitHub
@@ -70,7 +70,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             href={liveLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-violet-800 hover:bg-violet-900 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-violet-800 hover:bg-violet-900 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-400"
           >
             <ExternalLink className="w-4 h-4 mr-2" />
             Live Demo
@@ -88,7 +88,7 @@ const Projects: React.FC = () => {
       title: "Hotel Esmeralda",
       description: "Proyecto final de Henry, desarrollé una aplicación integral de gestión hotelera tanto para el cliente como para administrador.",
       technologies: ["JavaScript", "React", "Socket.io","PostreSQL"],
-      githubLink: "https://github.com/yourusername/hotel-esmeralda",
+      githubLink: "https://github.com/tomy1375/Cliente-Hotel-Esmeralda.git",
       liveLink: "https://hotelesmeralda.netlify.app/"
     },
     {
@@ -96,7 +96,7 @@ const Projects: React.FC = () => {
       title: "Spotify Clone",
       description: "Clon de Spotify, recrea la experiencia de usuario de la plataforma de música de streaming.",
       technologies: ["React", "CSS", "TypeScript", "Astro"],
-      githubLink: "https://github.com/yourusername/spotify-clone",
+      githubLink: "https://github.com/tomy1375/Spotify-Clone",
       liveLink: "https://spotifyclonev2.netlify.app/"
     },
     {
