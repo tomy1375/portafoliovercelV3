@@ -1,60 +1,99 @@
 ---
 import SocialButton from "./buttons/SocialButton.astro";
-
-
 ---
 
 <section id="inicio" class="hero">
     <div class="background">
-      <div class="container-title mb-32">
-        <span class="text-white opacity-80 text-lg name">
+      <div class="container-title mb-32 opacity-95">
+        <span class="text-white text-lg name">
           Hola, Soy Tomas Ramos
           <span class="hand-icon">👋</span>
         </span>
-        <h1>FrontEnd</h1>
-        <h2 class="">Developer</h2>
-        <SocialButton class="social-buttons" />
+        <h1 class="frontend-text">
+          <span class="typing-text-frontend"></span><span class="cursor-frontend">|</span>
+        </h1>
+        <h2 class="developer-text">
+          <span class="typing-text-developer opacity-95"></span><span class="cursor-developer">|</span>
+        </h2>
+        <SocialButton class="social-buttons opacity-95" />
       </div>
     </div>
   </section>
   
 
-  <script type="module">
-    import { gsap } from 'https://cdn.skypack.dev/gsap';
-  
-    function initAnimation() {
-      gsap.set(['.name', 'h1', 'h2'], { y: 100, opacity: 0, visibility: 'hidden' });
-  
-      gsap.to(['.name', 'h1', 'h2'], {
-        opacity: 1,
-        y: 0,
-        visibility: 'visible',
-        ease: 'power3.out',
-        duration: 1.5,
-        stagger: 0.3,
-        delay: 0.2,
-      });
+<script type="module">
+  import { gsap } from 'https://cdn.skypack.dev/gsap';
 
-    
-      gsap.to('.hand-icon', {
-        rotation: 360,
-        repeat: -1,
-        ease: 'none',
-        duration: 10,
-        transformOrigin: '70% 70%',
+  function initAnimation() {
+    gsap.set(['.name', 'h1', 'h2'], { y: 100, opacity: 0, visibility: 'hidden' });
+
+    gsap.to(['.name', 'h1', 'h2'], {
+      opacity: 1,
+      y: 0,
+      visibility: 'visible',
+      ease: 'power3.out',
+      duration: 1.5,
+      stagger: 0.3,
+      delay: 0.2,
+    });
+
+    gsap.to('.hand-icon', {
+      rotation: 360,
+      repeat: -1,
+      ease: 'none',
+      duration: 10,
+      transformOrigin: '70% 70%',
+    });
+
+    // Typing effect for "FrontEnd"
+    typeWriter('.typing-text-frontend', 'FrontEnd', () => {
+      document.querySelector('.frontend-text').classList.add('glow-violet');
+      blinkCursor('.cursor-frontend');
+    });
+
+    // Typing effect for "Developer"
+    gsap.delayedCall(2, () => {
+      typeWriter('.typing-text-developer', 'Developer', () => {
+        document.querySelector('.developer-text').classList.add('glow-cyan');
+        blinkCursor('.cursor-developer');
       });
+    });
+  }
+
+  function typeWriter(selector, text, callback) {
+    const element = document.querySelector(selector);
+    let i = 0;
+
+    function type() {
+      if (i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 150);
+      } else {
+        callback();
+      }
     }
-  
-    document.addEventListener('DOMContentLoaded', initAnimation);
+
+    type();
+  }
+
+  function blinkCursor(selector) {
+    gsap.to(selector, {
+      opacity: 0,
+      repeat: -1,
+      yoyo: true,
+      duration: 0.7
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initAnimation);
 </script>
 
-<!-- a veces un problema de margenes con el .hero -->
 <style>
     .hero {
         /* position: relative;
         width: 100%;
         height: 900px;  */
-        
     }
 
     .background {
@@ -87,23 +126,76 @@ import SocialButton from "./buttons/SocialButton.astro";
         padding: 10px;
     }
     
-    h1 {
-        font-size: 4rem;
-        font-weight: 800;
-        background-color: #000000;
-        background-image: ;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        transition: all .2s;
-    }
-
-    h2 {
-        height: ;
-        font-size: 2.5rem; 
+    h1, h2 {
         font-weight: 800;
         color: #ffffff; 
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-   }
+    }
+
+    h1 {
+        font-size: 4rem;
+    }
+
+    h2 {
+        font-size: 2.5rem; 
+    }
+
+    .frontend-text, .developer-text {
+        color: #fff;
+    }
+
+    .frontend-text.glow-violet {
+        animation: neon-glow-violet 1.5s ease-in-out infinite alternate;
+    }
+
+    /* .developer-text.glow-cyan {
+        animation: neon-glow-cyan 1.5s ease-in-out infinite alternate;
+    } */
+
+    @keyframes neon-glow-violet {
+        from {
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #8A2BE2,
+                0 0 60px #8A2BE2;
+        }
+        to {
+            text-shadow: 
+                0 0 2.5px #fff,
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #8A2BE2,
+                0 0 25px #8A2BE2,
+                0 0 35px #8A2BE2;
+        }
+    }
+
+    @keyframes neon-glow-cyan {
+        from {
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #0ff,
+                0 0 80px #0ff;
+        }
+        to {
+            text-shadow: 
+                0 0 2.5px #fff,
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #0ff,
+                0 0 35px #0ff,
+                0 0 40px #0ff;
+        }
+    }
+
+    .cursor-frontend, .cursor-developer {
+        font-weight: 100;
+        color: #fff;
+    }
 
    .name{
         color: #fff;
