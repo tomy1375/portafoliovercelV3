@@ -46,7 +46,7 @@ import SocialButton from "./buttons/SocialButton.astro";
     });
 
     // Typing effect for "FrontEnd"
-    typeWriter('.typing-text-frontend', 'FrontEnd', () => {
+    typeWriter('.typing-text-frontend', '<FrontEnd>', () => {
       document.querySelector('.frontend-text').classList.add('glow-violet');
       blinkCursor('.cursor-frontend');
     });
@@ -68,7 +68,7 @@ import SocialButton from "./buttons/SocialButton.astro";
       if (i < text.length) {
         element.textContent += text.charAt(i);
         i++;
-        setTimeout(type, 150);
+        setTimeout(type, 180);
       } else {
         callback();
       }
@@ -155,20 +155,22 @@ import SocialButton from "./buttons/SocialButton.astro";
     @keyframes neon-glow-violet {
         from {
             text-shadow: 
-                0 0 5px #fff,
+            0 0 5px #fff,
                 0 0 10px #fff,
                 0 0 20px #fff,
-                0 0 40px #8A2BE2,
-                0 0 60px #8A2BE2;
+                0 0 40px rgb(178, 20, 209),
+                0 0 60px rgb(178, 20, 209);
         }
         to {
             text-shadow: 
-                0 0 2.5px #fff,
+            0 0 2.5px #fff,
                 0 0 5px #fff,
                 0 0 10px #fff,
-                0 0 20px #8A2BE2,
-                0 0 25px #8A2BE2,
-                0 0 35px #8A2BE2;
+                0 0 15px rgb(178, 20, 209),
+                0 0 25px rgb(178, 20, 209),
+                0 0 30px rgb(178, 20, 209),
+                0 0 40px rgb(178, 20, 209),
+                0 0 50px rgb(178, 20, 209);
         }
     }
 
