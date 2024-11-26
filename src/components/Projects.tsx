@@ -25,7 +25,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     <motion.div
       whileHover={{ scale: 1.05 }}
       transition={{ type: "spring", stiffness: 300 }}
-      className="overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-md hover:border-violet-800 dark:hover:border-violet-800 transition-colors duration-300 max-w-sm mx-auto w-full h-full flex flex-col"
+      className="overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-md hover:border-violet-800 dark:hover:border-violet-800 transition-colors duration-300 max-w-sm mx-auto w-full h-[500px] flex flex-col mt-5 mb-6"
     >
       <div className="p-0">
         <div className="relative overflow-hidden h-48">
@@ -37,7 +37,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60" />
         </div>
       </div>
-      <div className="p-6">
+      <div className="p-7">
         <h3 className="text-2xl font-bold mb-2 text-gray-800 dark:text-white">{title}</h3>
         <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">{description}</p>
         <div className="flex flex-wrap gap-8 mb-4">
@@ -148,8 +148,8 @@ const Projects: React.FC = () => {
           <span className="text-violet-800 font-semibold">programar</span>
         </p>
       </motion.div>
-      <div className="relative max-w-6xl mx-auto">
-        <div className="overflow-hidden">
+      <div className="relative max-w-6xl mx-auto overflow-hidden">
+        <div className="">
           <motion.div 
             className="flex transition-all duration-300 ease-in-out"
             animate={{ x: `${-currentIndex * 100}%` }}
