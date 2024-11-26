@@ -1,8 +1,8 @@
 'use client'
 import { ICONS } from './data/IconsTecnologies';
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react'
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ExternalLink, Github, ChevronLeft, ChevronRight } from 'lucide-react'
 
 interface ProjectCardProps {
   imageSrc: string;
@@ -25,7 +25,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     <motion.div
       whileHover={{ scale: 1.05 }}
       transition={{ type: "spring", stiffness: 300 }}
-      className="overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-md hover:border-violet-800 dark:hover:border-violet-800 transition-colors duration-300 max-w-sm mx-auto w-full"
+      className="overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-md hover:border-violet-800 dark:hover:border-violet-800 transition-colors duration-300 max-w-sm mx-auto w-full h-full flex flex-col"
     >
       <div className="p-0">
         <div className="relative overflow-hidden h-48">
@@ -53,7 +53,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           })}
         </div>
       </div>
-      <div className="flex justify-between p-6 pt-0">
+      <div className="mt-auto flex justify-between p-6 pt-4">
         {githubLink && (
           <a
             href={githubLink}
@@ -106,11 +106,33 @@ const Projects: React.FC = () => {
       technologies: ["HTML", "CSS", "JavaScript","React"],
       githubLink: "https://github.com/yourusername/pokemon-pokedex",
       liveLink: "https://pokemon-pokedex.vercel.app"
+    },
+    {
+      imageSrc: "/dot.webp",
+      title: "Dot Dager Portafolio",
+      description: "Diseñé un portafolio para el artista DotDager como parte de un concurso, basado en la creación a partir de un prompt.",
+      technologies: ["HTML", "CSS", "JavaScript","React"],
+      githubLink: "https://github.com/tomy1375/Dot-Dager-Portafolio",
+      liveLink: "https://dot-dager.netlify.app/"
     }
   ];
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex + 1 >= projects.length ? 0 : prevIndex + 1
+    );
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? projects.length - 1 : prevIndex - 1
+    );
+  };
+
   return (
-    <section id="" className="container mx-auto px-4 py-16">
+    <section id="" className="container mx-auto px-4 py-16 ">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -126,20 +148,55 @@ const Projects: React.FC = () => {
           <span className="text-violet-800 font-semibold">programar</span>
         </p>
       </motion.div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {projects.map((project, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+      <div className="relative max-w-6xl mx-auto">
+        <div className="overflow-hidden">
+          <motion.div 
+            className="flex transition-all duration-300 ease-in-out"
+            animate={{ x: `${-currentIndex * 100}%` }}
           >
-            <ProjectCard {...project} />
+            {projects.map((project, index) => (
+              <motion.div
+                key={index}
+                className="w-full flex-shrink-0 px-4 md:w-1/3"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <ProjectCard {...project} />
+              </motion.div>
+            ))}
           </motion.div>
-        ))}
+        </div>
+        <button
+          onClick={prevSlide}
+          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-violet-800 text-white p-2 rounded-full shadow-lg hover:bg-violet-900 transition-colors z-10"
+          aria-label="Proyecto anterior"
+        >
+          <ChevronLeft size={24} />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-violet-800 text-white p-2 rounded-full shadow-lg hover:bg-violet-900 transition-colors z-10"
+          aria-label="Siguiente proyecto"
+        >
+          <ChevronRight size={24} />
+        </button>
+        <div className="flex justify-center mt-4 md:hidden">
+          {projects.map((_, index) => (
+            <button
+              key={index}
+              className={`h-2 w-2 mx-1 rounded-full ${
+                index === currentIndex ? 'bg-violet-800' : 'bg-gray-300'
+              }`}
+              onClick={() => setCurrentIndex(index)}
+              aria-label={`Ir al proyecto ${index + 1}`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
 };
 
 export default Projects;
+
