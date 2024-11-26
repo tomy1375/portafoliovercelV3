@@ -108,7 +108,7 @@ const Projects: React.FC = () => {
       liveLink: "https://pokemon-pokedex.vercel.app"
     },
     {
-      imageSrc: "/dot.webp",
+      imageSrc: "/dot1.webp",
       title: "Dot Dager Portafolio",
       description: "Diseñé un portafolio para el artista DotDager como parte de un concurso, basado en la creación a partir de un prompt.",
       technologies: ["HTML", "CSS", "JavaScript","React"],
