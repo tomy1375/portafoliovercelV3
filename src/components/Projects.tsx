@@ -25,7 +25,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     <motion.div
       whileHover={{ scale: 1.05 }}
       transition={{ type: "spring", stiffness: 300 }}
-      className="overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-md hover:border-violet-800 dark:hover:border-violet-800 transition-colors duration-300 max-w-sm mx-auto w-full h-[500px] flex flex-col mt-5 mb-6"
+      className="overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-md hover:border-violet-800 dark:hover:border-violet-800 transition-colors duration-300 max-w-sm mx-auto w-full flex flex-col mt-5 mb-6"
     >
       <div className="p-0">
         <div className="relative overflow-hidden h-48">
