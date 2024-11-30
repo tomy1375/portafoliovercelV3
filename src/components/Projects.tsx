@@ -23,7 +23,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   return (
     <motion.div
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.04 }}
       transition={{ type: "spring", stiffness: 300 }}
       className="overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-md hover:border-violet-800 dark:hover:border-violet-800 transition-colors duration-300 max-w-sm mx-auto w-full flex flex-col mt-5 mb-6"
     >
@@ -84,7 +84,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 const Projects: React.FC = () => {
   const projects = [
     {
-      imageSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/9691749d6cb5ab464a0e2426f72aad639528da016a112d1be4d95f9a8a5f554e?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac",
+      imageSrc: "/hotel.webp",
       title: "Hotel Esmeralda",
       description: "Proyecto final de Henry, desarrollé una aplicación integral de gestión hotelera tanto para el cliente como para administrador.",
       technologies: ["JavaScript", "React", "Socket.io","PostreSQL"],
@@ -92,7 +92,7 @@ const Projects: React.FC = () => {
       liveLink: "https://hotelesmeralda.netlify.app/"
     },
     {
-      imageSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/c75f588836b50a6236e844a3004d1b9d36299b5862c55fc98a6dbb78f07c3fd4?placeholderIfAbsent=true&apiKey=9fe8dc76776646f4a6bc648caa0a3bac",
+      imageSrc: "/spotify.webp",
       title: "Spotify Clone",
       description: "Clon de Spotify, recrea la experiencia de usuario de la plataforma de música de streaming.",
       technologies: ["React", "CSS", "TypeScript", "Astro"],
@@ -100,21 +100,21 @@ const Projects: React.FC = () => {
       liveLink: "https://spotifyclonev2.netlify.app/"
     },
     {
+      imageSrc: "/dot1.webp",
+      title: "Dot Dager Portafolio",
+      description: "Diseñé un portafolio para el artista DotDager como parte de un concurso, basado en la creación a partir de un prompt.",
+      technologies: ["Astro","React", "CSS", "TypeScript"],
+      githubLink: "https://github.com/tomy1375/Dot-Dager-Portafolio",
+      liveLink: "https://dot-dager.netlify.app/"
+    },
+    {
       imageSrc: "https://cdna.artstation.com/p/assets/images/images/005/201/884/large/trippy-sun-pokedex-avec-pika.jpg?1489267325",
       title: "Pokemon - Pokedex",
       description: "Una Pokedex interactiva que muestra información detallada sobre diferentes Pokémon.",
       technologies: ["HTML", "CSS", "JavaScript","React"],
       githubLink: "https://github.com/yourusername/pokemon-pokedex",
-      liveLink: "https://pokemon-pokedex.vercel.app"
+      liveLink: ""
     },
-    {
-      imageSrc: "/dot1.webp",
-      title: "Dot Dager Portafolio",
-      description: "Diseñé un portafolio para el artista DotDager como parte de un concurso, basado en la creación a partir de un prompt.",
-      technologies: ["HTML", "CSS", "JavaScript","React"],
-      githubLink: "https://github.com/tomy1375/Dot-Dager-Portafolio",
-      liveLink: "https://dot-dager.netlify.app/"
-    }
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
