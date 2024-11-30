@@ -25,7 +25,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     <motion.div
       whileHover={{ scale: 1.04 }}
       transition={{ type: "spring", stiffness: 300 }}
-      className="overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-md hover:border-violet-800 dark:hover:border-violet-800 transition-colors duration-300 max-w-sm mx-auto w-full flex flex-col mt-5 mb-6"
+      className="overflow-hidden bg-gray-800 border border-gray-700 rounded-lg shadow-md hover:border-violet-800 dark:hover:border-violet-800 transition-colors duration-300 max-w-sm mx-auto w-full flex flex-col mt-5 mb-6"
     >
       <div className="p-0">
         <div className="relative overflow-hidden h-48">
@@ -38,8 +38,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
       </div>
       <div className="p-7">
-        <h3 className="text-2xl font-bold mb-2 text-gray-800 dark:text-white">{title}</h3>
-        <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">{description}</p>
+        <h3 className="text-2xl font-bold mb-2 text-white">{title}</h3>
+        <p className="text-sm text-gray-300 mb-4">{description}</p>
         <div className="flex flex-wrap gap-8 mb-4">
           {technologies.map((tech, index) => {
             const icon = ICONS.find(icon => icon.name.toLowerCase() === tech.toLowerCase());
@@ -59,7 +59,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             href={githubLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500 transition-colors"
+            className="inline-flex items-center px-4 py-2 border border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-200 bg-gray-700 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500 transition-colors"
           >
             <Github className="w-4 h-4 mr-2" />
             GitHub
@@ -112,7 +112,7 @@ const Projects: React.FC = () => {
       title: "Pokemon - Pokedex",
       description: "Una Pokedex interactiva que muestra información detallada sobre diferentes Pokémon.",
       technologies: ["HTML", "CSS", "JavaScript","React"],
-      githubLink: "https://github.com/yourusername/pokemon-pokedex",
+      githubLink: "https://github.com/tomy1375/PI_Pokemon",
       liveLink: ""
     },
   ];
@@ -139,9 +139,9 @@ const Projects: React.FC = () => {
         transition={{ duration: 0.5 }}
         className="text-center mb-12"
       >
-        <h2 className="text-5xl font-bold mb-2 text-gray-800 dark:text-white">Proyectos</h2>
+        <h2 className="text-5xl font-bold mb-2  text-white">Proyectos</h2>
         <div className="w-24 h-2 bg-violet-800 mx-auto mb-6"></div>
-        <p className="text-xl text-gray-600 dark:text-gray-300">
+        <p className="text-xl text-gray-300">
           <span>Todo lo que puedas </span>
           <span className="text-violet-800 font-semibold">imaginar</span>
           <span>, lo podrás </span>
