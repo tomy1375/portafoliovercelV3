@@ -84,7 +84,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 const Projects: React.FC = () => {
   const projects = [
     {
-      imageSrc: "/hotel.webp",
+      imageSrc: "/hotele.webp",
       title: "Hotel Esmeralda",
       description: "Proyecto final de Henry, desarrollé una aplicación integral de gestión hotelera tanto para el cliente como para administrador.",
       technologies: ["JavaScript", "React", "Socket.io","PostreSQL"],
@@ -92,7 +92,7 @@ const Projects: React.FC = () => {
       liveLink: "https://hotelesmeralda.netlify.app/"
     },
     {
-      imageSrc: "/spotify.webp",
+      imageSrc: "/spotify3.webp",
       title: "Spotify Clone",
       description: "Clon de Spotify, recrea la experiencia de usuario de la plataforma de música de streaming.",
       technologies: ["React", "CSS", "TypeScript", "Astro"],
@@ -100,7 +100,7 @@ const Projects: React.FC = () => {
       liveLink: "https://spotifyclonev2.netlify.app/"
     },
     {
-      imageSrc: "/dot1.webp",
+      imageSrc: "/dot2.webp",
       title: "Dot Dager Portafolio",
       description: "Diseñé un portafolio para el artista DotDager como parte de un concurso, basado en la creación a partir de un prompt.",
       technologies: ["Astro","React", "CSS", "TypeScript"],
