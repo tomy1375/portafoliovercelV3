@@ -92,6 +92,14 @@ const Projects: React.FC = () => {
       liveLink: "https://hotelesmeralda.netlify.app/"
     },
     {
+      imageSrc: "sssmr.webp",
+      title: "S.M.R. ingeniería",
+      description: "Plataforma web creada para SMR Ingeniería con gestión de planos, panel admin, acceso para clientes e historial de descargas.",
+      technologies: ["PostreSQL",  "Astro","TypeScript","React"],
+      githubLink: "https://github.com/tomy1375/PI_Pokemon",
+      liveLink: "https://smringenieria.netlify.app/"
+    },
+    {
       imageSrc: "/spotify3.webp",
       title: "Spotify Clone",
       description: "Clon de Spotify, recrea la experiencia de usuario de la plataforma de música de streaming.",
