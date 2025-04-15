@@ -14,7 +14,8 @@ import ContactoIcon from "../components/icons/ContactoIcon.astro"
     <div id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
       <div class="flex relative flex-col items-center px-20 pt-10 w-screen max-md:px-5 max-md:max-w-full">
         <div class="bg-black bg-opacity-50 rounded-full px-6 py-3 transition-all duration-300">
-          <nav data-layername="navbarButton" class="flex flex-wrap justify-center gap-6 items-center max-w-full text-base text-white opacity-80">
+          <!-- Navbar para escritorio -->
+          <nav data-layername="navbarButton" class="hidden md:flex flex-wrap justify-center gap-6 items-center max-w-full text-base text-white opacity-80">
             <a href="#inicio" class="btnd group">
               <HomeIcons className="w-4 h-4 mr-1 group-hover:filter transition-all duration-300" />
               <span class="transition-all duration-300">Inicio</span>
@@ -40,9 +41,51 @@ import ContactoIcon from "../components/icons/ContactoIcon.astro"
               <span class="transition-all duration-300">Contacto</span>
             </a>
           </nav>
+          
+          <!-- Botón de hamburguesa para móvil -->
+          <button id="mobile-menu-button" class="md:hidden flex items-center justify-center w-10 h-10 text-white focus:outline-none">
+            <div class="hamburger-icon">
+              <span class="line line-1"></span>
+              <span class="line line-2"></span>
+              <span class="line line-3"></span>
+            </div>
+          </button>
         </div>
       </div>
     </div>
+    
+    <!-- Menú móvil -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 flex items-center justify-center bg-black bg-opacity-95 transform scale-0 opacity-0 pointer-events-none transition-all duration-500">
+      <div class="mobile-menu-content transform translate-y-8 opacity-0 transition-all duration-500 delay-100">
+        <nav class="flex flex-col items-center gap-8 text-xl text-white">
+          <a href="#inicio" class="mobile-nav-item group flex items-center">
+            <HomeIcons className="w-5 h-5 mr-2 group-hover:filter transition-all duration-300" />
+            <span>Inicio</span>
+          </a>
+          <a href="#sobreMi" class="mobile-nav-item group flex items-center">
+            <Person class="w-6 h-6 mr-2 group-hover:filter group-hover:brightness-125 transition-all duration-300" />
+            <span>Sobre mí</span>
+          </a>
+          <a href="#experiencia" class="mobile-nav-item group flex items-center">
+            <ExperienciaIcon className="w-6 h-6 mr-2 group-hover:filter transition-all duration-300"/>
+            <span>Experiencia</span>
+          </a>
+          <a href="#proyectos" class="mobile-nav-item group flex items-center">
+            <ProyectoIcon className="w-6 h-6 mr-2 group-hover:filter transition-all duration-300"/>
+            <span>Proyectos</span>
+          </a>
+          <a href="#tecnologias" class="mobile-nav-item group flex items-center">
+            <TecnologiasIcon className="w-6 h-6 mr-2"/>
+            <span>Tecnologías</span>
+          </a>
+          <a href="#contacto" class="mobile-nav-item group flex items-center">
+            <ContactoIcon className="w-6 h-6 mr-2"/>
+            <span>Contacto</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+    
     <div class="flex flex-col items-center m justify-center mb-0 max-w-full w-[790px] max-md:mb-2.5 opacity-90 mx-auto mt-40">
       <div>
         <Hero/>
@@ -52,6 +95,7 @@ import ContactoIcon from "../components/icons/ContactoIcon.astro"
 </div>
 
 <style>
+  /* Estilos existentes */
   .btnd {
     font-size: 16px;
     background: transparent;
@@ -122,13 +166,141 @@ import ContactoIcon from "../components/icons/ContactoIcon.astro"
     width: 24px;
     height: 24px;
   }
+  
+  /* Estilos para el botón de hamburguesa */
+  .hamburger-icon {
+    position: relative;
+    width: 24px;
+    height: 18px;
+  }
+  
+  .line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transition: all 0.3s ease;
+  }
+  
+  .line-1 {
+    top: 0;
+  }
+  
+  .line-2 {
+    top: 8px;
+  }
+  
+  .line-3 {
+    bottom: 0;
+  }
+  
+  /* Animación del botón de hamburguesa */
+  .open .line-1 {
+    transform: translateY(8px) rotate(45deg);
+    background-color: #fcd34d;
+  }
+  
+  .open .line-2 {
+    opacity: 0;
+  }
+  
+  .open .line-3 {
+    transform: translateY(-8px) rotate(-45deg);
+    background-color: #fcd34d;
+  }
+  
+  /* Estilos para el menú móvil */
+  .mobile-nav-item {
+    position: relative;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .mobile-nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #fcd34d;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+  
+  .mobile-nav-item:hover {
+    color: #fcd34d;
+  }
+  
+  .mobile-nav-item:hover::after {
+    width: 80%;
+  }
+  
+  /* Clase para cuando el menú está abierto */
+  .menu-open {
+    transform: scale(1) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+  
+  /* Clase para la animación del contenido del menú */
+  .content-visible {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+  }
+  
+  /* Clase para el elemento activo */
+  .active-link {
+    color: #fcd34d;
+  }
+  
+  .active-link::after {
+    width: 80%;
+  }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', (event) => {
     const navbar = document.getElementById('navbar');
-    const navLinks = document.querySelectorAll('.btnd');
+    const navLinks = document.querySelectorAll('.btnd, .mobile-nav-item');
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuContent = document.querySelector('.mobile-menu-content');
+    const hamburgerIcon = document.querySelector('.hamburger-icon');
+    const body = document.body;
+    
+    // Función para abrir/cerrar el menú móvil
+    function toggleMobileMenu() {
+      if (mobileMenu?.classList.contains('menu-open')) {
+        // Cerrar menú
+        mobileMenu.classList.remove('menu-open');
+        mobileMenuContent?.classList.remove('content-visible');
+        hamburgerIcon?.classList.remove('open');
+        body.style.overflow = ''; // Restaurar scroll
+      } else {
+        // Abrir menú
+        mobileMenu?.classList.add('menu-open');
+        setTimeout(() => {
+          mobileMenuContent?.classList.add('content-visible');
+        }, 100);
+        hamburgerIcon?.classList.add('open');
+        body.style.overflow = 'hidden'; // Prevenir scroll
+      }
+    }
+    
+    // Event listener para el botón de menú móvil
+    mobileMenuButton?.addEventListener('click', toggleMobileMenu);
+    
+    // Cerrar el menú al hacer clic en un enlace
+    const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+    mobileNavItems.forEach((item: Element) => {
+      item.addEventListener('click', () => {
+        toggleMobileMenu();
+      });
+    });
 
+    // Cambiar estilo del navbar al hacer scroll
     window.addEventListener('scroll', () => {
       if (window.scrollY > 100) {
         navbar?.classList.add('navbar-scrolled');
@@ -137,6 +309,7 @@ import ContactoIcon from "../components/icons/ContactoIcon.astro"
       }
     });
 
+    // Navegación suave al hacer clic en los enlaces
     navLinks.forEach((link: Element) => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
@@ -155,20 +328,35 @@ import ContactoIcon from "../components/icons/ContactoIcon.astro"
       });
     });
 
+    // Observer para detectar la sección activa
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const id = entry.target.id;
-          const correspondingLink = document.querySelector(`a[href="#${id}"]`);
-          if (correspondingLink) {
-            navLinks.forEach(link => link.classList.remove('text-fcd34d'));
-            correspondingLink.classList.add('text-fcd34d');
+          // Actualizar enlaces de escritorio
+          const desktopLink = document.querySelector(`.btnd[href="#${id}"]`);
+          if (desktopLink) {
+            navLinks.forEach(link => {
+              if (link.classList.contains('btnd')) {
+                link.classList.remove('text-fcd34d');
+              }
+            });
+            desktopLink.classList.add('text-fcd34d');
+          }
+          
+          // Actualizar enlaces móviles
+          const mobileLink = document.querySelector(`.mobile-nav-item[href="#${id}"]`);
+          if (mobileLink) {
+            mobileNavItems.forEach(link => {
+              link.classList.remove('active-link');
+            });
+            mobileLink.classList.add('active-link');
           }
         }
       });
     }, { threshold: 0.5 });
 
-    document.querySelectorAll('section[id]').forEach((section) => {
+    document.querySelectorAll('section[id], div[id="inicio"]').forEach((section) => {
       observer.observe(section);
     });
   });
