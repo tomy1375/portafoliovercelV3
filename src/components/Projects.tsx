@@ -87,7 +87,7 @@ const Projects: React.FC = () => {
       imageSrc: "/hotele.webp",
       title: "Hotel Esmeralda",
       description: "Proyecto final de Henry, desarrollé una aplicación integral de gestión hotelera tanto para el cliente como para administrador.",
-      technologies: ["JavaScript", "React", "Socket.io","PostreSQL"],
+      technologies: ["JavaScript", "React", "Socket.io","PostgreSQL"],
       githubLink: "https://github.com/tomy1375/Cliente-Hotel-Esmeralda.git",
       liveLink: "https://hotelesmeralda.netlify.app/"
     },
