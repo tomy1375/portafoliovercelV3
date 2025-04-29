@@ -111,8 +111,8 @@ const Projects: React.FC = () => {
       imageSrc: "/tonal.webp",
       title: "Tonalux",
       description: "Diseñé una tienda online para vender LUTs digitales, enfocada en la estética visual y la experiencia de usuario.",
-      technologies: ["wordpress", "WooCommerce"],
-      // githubLink: "https://github.com/tomy1375/PI_Pokemon",
+      technologies: ["WordPress", "WooCommerce"],
+      githubLink: "",
       liveLink: "https://tonalux.me"
     },
     {
