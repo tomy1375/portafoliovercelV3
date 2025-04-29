@@ -108,6 +108,14 @@ const Projects: React.FC = () => {
       liveLink: "https://spotifyclonev2.netlify.app/"
     },
     {
+      imageSrc: "/tonal.webp",
+      title: "Tonalux",
+      description: "Diseñé una tienda online para vender LUTs digitales, enfocada en la estética visual y la experiencia de usuario.",
+      technologies: ["wordpress", "WooCommerce"],
+      // githubLink: "https://github.com/tomy1375/PI_Pokemon",
+      liveLink: "https://tonalux.me"
+    },
+    {
       imageSrc: "/dot2.webp",
       title: "Dot Dager Portafolio",
       description: "Diseñé un portafolio para el artista DotDager como parte de un concurso, basado en la creación a partir de un prompt.",
